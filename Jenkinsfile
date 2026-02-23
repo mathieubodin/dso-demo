@@ -40,7 +40,13 @@ pipeline {
         }
       }
     }
-
+    stage('OCI Image Build') {
+      steps {
+        container('kaniko') {
+          sh '/kaniko/executor -f `pwd`/Dockerfile -c `pwd` --insecure --skip-tls-verify --destination=ghcr.io/lfs262-packages/dso-demo'
+        }
+      }
+    }
     stage('Deploy to Dev') {
       steps {
         // TODO
