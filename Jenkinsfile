@@ -42,7 +42,7 @@ pipeline {
                       /bin/bash --login
                       rvm use default
                       gem install license_finder
-                      licence_finder
+                      license_finder
                     '''
             }
           }
